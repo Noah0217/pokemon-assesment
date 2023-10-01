@@ -6,13 +6,13 @@
       <input v-model="searchText" class="search-input" placeholder="Search Pokémon..." />
     </div>
     <div class="pokemon-grid">
-  <div v-for="pokemon in pokemons" :key="pokemon.id" class="pokemon-card">
+  <div v-for="pokemon in pokemons" :key="pokemon.id" class="pokemon-card" @click="navigateToProfile(pokemon.id)">
     <div class="pokemon-name">{{ pokemon.name }}</div>
     <img :src="pokemon.imageUrl" alt="Pokemon Image" class="pokemon-image" />
   </div>
 </div>
     </div>
-    <div v-else>
+    <div style="font-size: 32px; font-family: system-ui; background: -webkit-linear-gradient(#ce1b1b, #d3d00f); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" v-else>
     Loading...
   </div>
   </div>
@@ -66,7 +66,10 @@ export default defineComponent({
   } catch (error) {
     console.error('Error fetching Pokémon data:', error);
   }
-}
+},
+navigateToProfile(pokemonId: number) {
+      this.$router.push(`/pokemon/${pokemonId}`);
+    },
   },
 });
 </script>
@@ -89,10 +92,15 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  
 }
-
+.pokemon-card:hover {
+  border: 1px solid #9b9b9b;
+}
 .pokemon-name {
   font-weight: bold;
+  font-size: 21px;
   margin-bottom: 10px;
 }
 
