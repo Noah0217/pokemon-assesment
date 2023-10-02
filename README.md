@@ -1,75 +1,33 @@
-# Nuxt 3 Minimal Starter
-
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# Pokemon Pokeapi Project
 
 ## Setup
 
-Make sure to install the dependencies:
+```bash
+# clone the repo to your local machine
+git clone https://github.com/Noah0217/pokemon-assesment
+```
 
 ```bash
-# npm
+# install required dependencies
 npm install
+```
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+```bash
+# run local server to view web page
+npm run dev
 ```
 
 ## Development Server
-
 Start the development server on `http://localhost:3000`:
 
-```bash
-# npm
-npm run dev
+## Languages & Frameworks used
+- TypeScript
+- Vue.js
+- Nuxt.js
 
-# pnpm
-pnpm run dev
+## Preview
+![image](https://github.com/Noah0217/pokemon-assesment/assets/84366215/a62b3f72-cb6d-49a0-9f51-0ed5e0808536)
 
-# yarn
-yarn dev
+![image](https://github.com/Noah0217/pokemon-assesment/assets/84366215/62ab5b5c-f69d-4169-9515-0aea8e927f5e)
 
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+![image](https://github.com/Noah0217/pokemon-assesment/assets/84366215/e49914f6-416f-43ab-8130-6390063782ec)
