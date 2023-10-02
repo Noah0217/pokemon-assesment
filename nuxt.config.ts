@@ -1,17 +1,20 @@
-// nuxt.config.js
-export default {
-  // ... other configurations
+({
+  // ...other configurations
 
-  // Define custom routes
-  generate: {
-    routes: function () {
-      const routes = [];
-      for (let i = 1; i <= 63; i++) {
-        routes.push(`/pokemon/${i}`);
-      }
-      return routes;
+  router: {
+    extendRoutes(routes: any[], resolve: any) {
+      routes.push({
+        name: 'pokemon-detail',
+        path: '/pokemon/:id',
+        component: resolve(__dirname, 'path/to/[id].vue'),
+      });
     },
   },
 
-  // ... other configurations
-};
+  // ...other configurations
+
+  build: {
+    // Enable TypeScript for this project
+    typescript: true,
+  },
+});

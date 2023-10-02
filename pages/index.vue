@@ -68,8 +68,8 @@ export default defineComponent({
   }
 },
 navigateToProfile(pokemonId: number) {
-      this.$router.push(`/pokemon/${pokemonId}`);
-    },
+  this.$router.push(`/pokemon/${pokemonId}`);
+}
   },
 });
 </script>
@@ -105,8 +105,8 @@ navigateToProfile(pokemonId: number) {
 }
 
 .pokemon-image {
-  width: 125px; /* Adjust the width of the image as needed */
-  height: 125px; /* Adjust the height of the image as needed */
+  width: 125px;
+  height: 125px;
 }
 
 .header {

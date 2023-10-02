@@ -1,8 +1,11 @@
-// nuxt-env.d.ts
-import { Configuration } from 'nuxt';
+// nuxt-end.d.ts
+import { NuxtConfig, NuxtOptionsRouter } from 'nuxt3';
 
-declare module 'nuxt/types' {
-  interface NuxtConfig extends Configuration {
-    // Add custom configurations if needed
+declare module 'nuxt3' {
+  interface NuxtConfig extends NuxtOptionsRouter {
+    router: {
+      extendRoutes(routes: Array<any>, resolve: Function): void;
+    };
+    // Add your other custom configurations here
   }
 }

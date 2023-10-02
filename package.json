@@ -15,6 +15,9 @@
     "nuxt": "^3.7.4"
   },
   "dependencies": {
-    "nuxt3": "^3.8.0-28265143.876fa7f3"
+    "@nuxt/types": "^2.17.1",
+    "nuxt3": "^3.8.0-28265143.876fa7f3",
+    "typescript": "^5.2.2",
+    "vue-router": "^4.2.5"
   }
 }
