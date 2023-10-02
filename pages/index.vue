@@ -6,10 +6,10 @@
       <input v-model="searchText" class="search-input" placeholder="Search Pokémon..." />
     </div>
     <div class="pokemon-grid">
-  <div v-for="pokemon in pokemons" :key="pokemon.id" class="pokemon-card" @click="navigateToProfile(pokemon.id)">
-    <div class="pokemon-name">{{ pokemon.name }}</div>
-    <img :src="pokemon.imageUrl" alt="Pokemon Image" class="pokemon-image" />
-  </div>
+      <div v-for="pokemon in filteredPokemons" :key="pokemon.id" class="pokemon-card" @click="navigateToProfile(pokemon.id)">
+        <div class="pokemon-name">{{ pokemon.name }}</div>
+        <img :src="pokemon.imageUrl" alt="Pokemon Image" class="pokemon-image" />
+      </div>
 </div>
     </div>
     <div style="font-size: 32px; font-family: system-ui; background: -webkit-linear-gradient(#ce1b1b, #d3d00f); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" v-else>
@@ -52,10 +52,10 @@ export default defineComponent({
             return {
               name: pokemon.name,
               id: pokemonData.id,
-              imageUrl: pokemonData.sprites.front_default, // Use the front_default sprite as the image URL
+              imageUrl: pokemonData.sprites.front_default,
             };
           } else {
-            throw new Error('Error fetching Pokémon details');
+            throw new Error('Error fetching Pokemon details');
           }
         })
       );
@@ -64,13 +64,25 @@ export default defineComponent({
       throw new Error('Network response was not ok');
     }
   } catch (error) {
-    console.error('Error fetching Pokémon data:', error);
+    console.error('Error fetching Pokemon data:', error);
   }
 },
 navigateToProfile(pokemonId: number) {
   this.$router.push(`/pokemon/${pokemonId}`);
 }
   },
+
+  computed: {
+  filteredPokemons() {
+    return this.pokemons.filter(pokemon => {
+      // Convert both the Pokémon name and search text to lowercase for case-insensitive search
+      const pokemonName = pokemon.name.toLowerCase();
+      const searchText = this.searchText.toLowerCase();
+      // Check if the Pokémon name includes the search text
+      return pokemonName.includes(searchText);
+    });
+  },
+},
 });
 </script>
 

@@ -1,4 +1,5 @@
 <template>
+  <div class="center-container">
   <div style="width: 600px; height: 360px; padding: 10px; border: 1px solid #ccc; border-radius: 25px; font-family: system-ui;" v-if="pokemon">
     <h1 style="font-family: system-ui; font-size: 35px;">{{ pokemon.name }}</h1>
     <p style="font-family: system-ui; font-size: 18px;">Height: {{ pokemon.height }}ft.</p>
@@ -9,9 +10,7 @@
       <button style="cursor: pointer; width: 75px; height: 25px; border-radius: 7px; background: #FE5C5C; border-color: transparent; color: #FFF;" @click="goBack">Back</button>
     </div>
   </div>
-  <div v-else>
-    Loading...
-  </div>
+</div>
 </template>
 
 <script setup lang="ts">
@@ -65,10 +64,10 @@ onMounted(async () => {
       console.log('Formatted Abilities:', formattedAbilities.value);
       console.log('Pokemon Object:', pokemon.value);
     } else {
-      console.error('Error fetching Pokémon data:', response.statusText);
+      console.error('Error fetching Pokemon data:', response.statusText);
     }
   } catch (error) {
-    console.error('Error fetching Pokémon data:', error);
+    console.error('Error fetching Pokemon data:', error);
   }
 });
 
@@ -86,9 +85,14 @@ const goBack = () => {
 <style scoped>
 .btn-container {
   display: flex;
-  justify-content: flex-end; /* Align items to the right */
-  margin-top: auto; /* Push the container to the bottom */
-  margin-right: 10px; /* Add some margin for spacing */
+  justify-content: flex-end;
+  margin-top: auto;
+  margin-right: 10px;
 }
-
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 </style>

@@ -1,6 +1,4 @@
 ({
-  // ...other configurations
-
   router: {
     extendRoutes(routes: any[], resolve: any) {
       routes.push({
@@ -10,11 +8,7 @@
       });
     },
   },
-
-  // ...other configurations
-
   build: {
-    // Enable TypeScript for this project
     typescript: true,
   },
 });
